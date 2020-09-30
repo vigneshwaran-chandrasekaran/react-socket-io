@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .profileImage {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 35px;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px 0;
+        }
+
+        .me span {
+            float: left;
+            background: #512DA8;
+        }
+
+        .other span {
+            float: right;
+            background: #a74912;
+        }
+
+        .me p {
+            padding: 20px;
+            margin-left: 50px;
+        }
+
+        .other p {
+            padding: 20px;
+            margin-right: 50px;
+            text-align: right;
+        }
+
+        #chat {
+            padding: 20px;
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        #chat input {
+            width: 100%;
+        }
+        #me, #other {
+            display: none;
+        }
+        .content {
+            margin-bottom: 10%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Socket IO</h1>
+
+        <div id='me'>
+            <table>
+                <tr>
+                    <td class="me">
+                        <span class="profileImage">M</span>
+                        <p>
+                            My text
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id='other'>
+            <table>
+                <tr>
+                    <td class="other">
+                        <span class="profileImage">O</span>
+                        <p>
+                            Other text
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row content">
+
+            <table class="table table-borderless table-hover message">
+                <thead>
+                    <tr>
+                        <th scope="col">Messages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div class="row fixed-bottom">
+            <div class="col-sm">
+                <div class="card">
+                    <form class="form-inline" id='chat' style="padding: 20px;">
+                        <div class="col mb-2">
+                            <label for="message" class="sr-only">Message</label>
+                            <input type="text" class="form-control" id="message" placeholder="Message" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
