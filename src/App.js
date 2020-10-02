@@ -17,7 +17,7 @@ function App() {
     console.log("socket 1", socket);
 
     socket.on("connect", (data) => {
-      console.log("a user connected");
+      console.log("a user connected", data);
       setResponse(data);
     });
 
@@ -25,15 +25,18 @@ function App() {
       console.log("socket event", data);
       setResponse(data);
     });
-    socket.on("disconnect", (data) => {
-      console.log("socket disconnect", data);
-      setResponse(data);
-    });
+
+    return () => {
+      // Closing the socket
+      socket.on("disconnect", (data) => {
+        console.log("socket disconnect", data);
+      });
+    };
   }, []);
 
   function emitMessage() {
     console.log("emitMessage");
-    socket.emit("message", "Hello all");
+    socket.emit("message", "Hello all " + Math.random());
   }
 
   return (
